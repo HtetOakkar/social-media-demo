@@ -1,7 +1,9 @@
 package com.htetoakkar.socialmedia.common.config;
 
 import jakarta.annotation.PostConstruct;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.TimeZone;
 
@@ -13,5 +15,10 @@ public class AppConfig {
     @PostConstruct
     public void init() {
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+    }
+
+    @Bean
+    RestTemplate restTemplate() {
+        return new RestTemplate();
     }
 }
